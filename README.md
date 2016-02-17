@@ -12,6 +12,7 @@ This is a modified WiringPi for OrangePi. We call it WiringOP. Test fo Orangepi 
     sudo ./build
     cd ..
     git clone https://github.com/ua3nbw/gpiokey.git
+    cd gpiokey
     gcc -o wpi wpi.c -lpthread -lwiringPi
     ./wpi &
     
