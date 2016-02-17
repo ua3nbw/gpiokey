@@ -10,4 +10,10 @@ This is a modified WiringPi for OrangePi. We call it WiringOP. Test fo Orangepi 
     cd WiringOP
     chmod +x ./build
     sudo ./build
-
+    cd ..
+    git clone https://github.com/ua3nbw/gpiokey.git
+    gcc -o wpi wpi.c -lpthread -lwiringPi
+    ./wpi &
+    
+   Thanks! 
+    
