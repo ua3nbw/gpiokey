@@ -114,14 +114,9 @@ void setup (void)
 {
 
  wiringPiSetup () ;
-  pinMode(7, INPUT);
-  pullUpDnControl (7, PUD_UP) ;
   pinMode(8, INPUT);
   pullUpDnControl (8, PUD_UP) ;
-  pinMode(9, INPUT);
-  pullUpDnControl (9, PUD_UP) ;
-  pinMode(10, INPUT);
-  pullUpDnControl (10, PUD_UP) ;
+
 
 // Use the gpio program to initialise the hardware
 //	(This is the crude, but effective)
