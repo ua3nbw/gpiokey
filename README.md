@@ -1,7 +1,7 @@
 # OrangePi GPIO Key
 
 This is a modified WiringPi for OrangePi. We call it WiringOP. Test fo Orangepi pc
-
+ When doing menuconfig the appropriate setting can be found under Device Drivers -> GPIO Support -> sysfs interface, or use CONFIG_GPIO_SYSFS=y if manually editing .config.
 ## Download
 ### For Orangepi Pi
      git clone https://github.com/WereCatf/WiringOP.git -b h3 
