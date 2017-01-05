@@ -8,7 +8,7 @@ function install_build_tools {
 	sudo apt-get install make
 	sudo apt-get install autoconf
 	sudo apt-get install libtool
-	sudo apt-get install nginx
+	sudo apt-get install pkg-config
 }
 
 function build_yasm {
