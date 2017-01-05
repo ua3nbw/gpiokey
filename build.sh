@@ -4,7 +4,7 @@ function install_build_tools {
         echo "deb http://www.deb-multimedia.org jessie main non-free" >> /etc/apt/sources.list
         echo "deb-src http://www.deb-multimedia.org jessie main non-free" >> /etc/apt/sources.list
         sudo apt-get update
-        sudo apt-get install deb-multimedia-keyring -y
+        sudo apt-get install deb-multimedia-keyring 
         sudo apt-get update
        	sudo apt-get install libasound2-dev
 	sudo apt-get install build-essential
@@ -12,8 +12,8 @@ function install_build_tools {
 	sudo apt-get install autoconf
 	sudo apt-get install libtool
 	sudo apt-get install pkg-config
-        sudo apt-get install libfdk-aac-dev -y
-        sudo apt-get install libfreetype6-dev -y
+        sudo apt-get install libfdk-aac-dev 
+        sudo apt-get install libfreetype6-dev 
 }
 function build_yasm {
 	
