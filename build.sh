@@ -50,7 +50,7 @@ function build_h264 {
 }
 　
 function build_lame {
-    # mp3 audio encoder
+    # mp3 audio  encoder
 　
 	echo "Building lame \e[41mRed"
 　
