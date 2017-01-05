@@ -1,6 +1,7 @@
 #!/bin/bash
 
-function install_build_tools {	sudo apt-get install git
+function install_build_tools {	
+        sudo apt-get install git
 	sudo apt-get install libasound2-dev
 	sudo apt-get install build-essential
 	sudo apt-get install make
