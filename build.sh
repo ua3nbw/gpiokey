@@ -1,6 +1,14 @@
 #!/bin/bash
-
-function install_build_tools {	
+　
+function install_build_tools {
+	
+        sudo apt-get update 
+        sudo apt-get upgrade -y
+        echo "deb http://www.deb-multimedia.org jessie main non-free" >> /etc/apt/sources.list
+        echo "deb-src http://www.deb-multimedia.org jessie main non-free" >> /etc/apt/sources.list
+        sudo apt-get update
+        sudo apt-get install deb-multimedia-keyring -y
+        sudo apt-get update
         sudo apt-get install git
 	sudo apt-get install libasound2-dev
 	sudo apt-get install build-essential
@@ -8,22 +16,17 @@ function install_build_tools {
 	sudo apt-get install autoconf
 	sudo apt-get install libtool
 	sudo apt-get install pkg-config
-        echo "deb http://www.deb-multimedia.org jessie main non-free" >> /etc/apt/sources.list
-        echo "deb-src http://www.deb-multimedia.org jessie main non-free" >> /etc/apt/sources.list
-        sudo apt-get update
-        sudo apt-get install deb-multimedia-keyring -y
-        sudo apt-get update
         sudo apt-get install libfdk-aac-dev -y
         sudo apt-get install libfreetype6-dev -y
 }
-
+　
 function build_yasm {
 	
 	echo "Building yasm... \e[41mRed"
-
+　
     # an assembler used by x264 and ffmpeg
     cd /usr/src
-
+　
     wget http://www.tortall.net/projects/yasm/releases/yasm-1.2.0.tar.gz
     tar xzvf yasm-1.2.0.tar.gz
     cd yasm-1.2.0
@@ -31,26 +34,26 @@ function build_yasm {
     make
     make install
 }
-
+　
 function build_h264 {
     # h.264 video encoder
-
+　
     echo "Building h264 \e[41mRed"
-
+　
     cd /usr/src
     git clone git://git.videolan.org/x264
     cd x264
-
+　
     ./configure --disable-asm --enable-shared
     make
     make install
 }
-
+　
 function build_lame {
     # mp3 audio encoder
-
+　
 	echo "Building lame \e[41mRed"
-
+　
     cd /usr/src
     wget http://downloads.sourceforge.net/project/lame/lame/3.99/lame-3.99.tar.gz
     tar xzvf lame-3.99.tar.gz
@@ -59,12 +62,12 @@ function build_lame {
     make -j4
     make install
 }
-
+　
 function build_faac {
     # aac encoder
-
+　
     echo "Building faac"
-
+　
     cd /usr/src
     curl -#LO http://downloads.sourceforge.net/project/faac/faac-src/faac-1.28/faac-1.28.tar.gz
     tar xzvf faac-1.28.tar.gz
@@ -73,33 +76,33 @@ function build_faac {
     make -j4
     make install
 }
-
+　
 function build_ffmpeg {
-
+　
 	echo "Building ffmpeg \e[41mRed"
-
+　
     cd /usr/src/
     git clone git://source.ffmpeg.org/ffmpeg.git
     cd ffmpeg      
-    ./configure --enable-shared --enable-gpl --prefix=/usr --enable-nonfree --enable-libmp3lame --enable-libfaac --enable-libx264 --enable-version3 --disable-mmx --enable-ffplay
+    ./configure --prefix=/usr --arch=armel --target-os=linux --enable-gpl --enable-libx264 --enable-nonfree --enable-libfreetype --enable-libfdk-aac --enable-libmp3lame --enable-libvorbis --enable-version3 --disable-mmx --enable-shared --enable-libfaac
     make -j4
     make install
 }
-
+　
 function configure_ldconfig {
-
+　
 	echo "Building ldconfig \e[41mRed"
-
+　
     echo "/usr/local/lib" > /etc/ld.so.conf.d/libx264.conf
     ldconfig
 }
-
+　
 function build_psips {
   git clone git://github.com/AndyA/psips.git
   cd psips
   ./setup.sh && ./configure && make && make install
 }
-
+　
 install_build_tools
 build_yasm
 build_h264
@@ -108,3 +111,4 @@ build_faac
 build_ffmpeg
 configure_ldconfig
 build_psips 
+　
