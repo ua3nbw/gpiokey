@@ -9,13 +9,12 @@ function install_build_tools {
         sudo apt-get update
         sudo apt-get install deb-multimedia-keyring -y
         sudo apt-get update
-        sudo apt-get install git
-		sudo apt-get install libasound2-dev
-		sudo apt-get install build-essential
-		sudo apt-get install make
-		sudo apt-get install autoconf
-		sudo apt-get install libtool
-		sudo apt-get install pkg-config
+       	sudo apt-get install libasound2-dev
+	sudo apt-get install build-essential
+	sudo apt-get install make
+	sudo apt-get install autoconf
+	sudo apt-get install libtool
+	sudo apt-get install pkg-config
         sudo apt-get install libfdk-aac-dev -y
         sudo apt-get install libfreetype6-dev -y
 }
