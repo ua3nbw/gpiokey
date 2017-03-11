@@ -51,7 +51,7 @@ function build_ffmpeg {
     cd /usr/src/
     git clone git://source.ffmpeg.org/ffmpeg.git
     cd ffmpeg      
-    ./configure --prefix=/usr --arch=armel --target-os=linux --enable-gpl --enable-libx264 --enable-librtmp --enable-nonfree --enable-libfreetype --enable-libfdk-aac --enable-libmp3lame --enable-version3 --disable-mmx --enable-shared
+    ./configure --prefix=/usr --target-os=linux --enable-gpl --enable-libx264 --enable-librtmp --enable-nonfree --enable-libfreetype --enable-libfdk-aac --enable-libmp3lame --enable-version3 --disable-mmx --enable-shared
     make -j 4
     make install
 }
